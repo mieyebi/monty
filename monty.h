@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <ctype.h>
 #include <sys/stat.h>
 #include <errno.h>
 
@@ -62,6 +63,16 @@ void pintt(stack_t **stack, unsigned int line);
 void popp(stack_t **stack, unsigned int line);
 stack_t *new_node(int n);
 void clean(stack_t **stack);
+void swapp(stack_t **stack, unsigned int line);
+void popp(stack_t **stack, unsigned int line);
 void free_dlistint(stack_t *stack);
+void command(char *argv);
+int _opcode(stack_t **stack, char *arg, char *item, int n);
+void push_error(FILE *fd, char *line, stack_t *stack, int count);
+void nopp(stack_t **stack, unsigned int line);
+void subb(stack_t **stack, unsigned int line);
+void addd(stack_t **stack, unsigned int line);
+void ins_error(FILE *fd, char *line, stack_t *stack, char *n, int item);
+int _isdigit(char *c);
 
 #endif
